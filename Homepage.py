@@ -3,6 +3,9 @@ import streamlit as st
 
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
 
+st.sidebar.success("Select a demo above.")
+
+
 #------HEADER SECTION-------
 st.subheader("Hi, I am Thanh Tran :wave:")
 st.title("A Third years student of Information Technology at Metropolia University Of Applied Science")
@@ -25,4 +28,3 @@ with st.container():
                  and cloud solutions (Docker Swarm, Kubernetes)
                  
                  """)
-          
