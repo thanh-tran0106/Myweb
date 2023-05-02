@@ -1,0 +1,21 @@
+//
+// Do any local configuration here
+zone "docker.demo.ai" {
+    type master;
+    file "/etc/bind/zones/db.docker.demo.ai"; # zone file path
+    forwarders {};
+    allow-update { none; };
+};
+
+zone "64.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.192.168.64";  # 192.168.64.0/24 subnet
+    allow-update { none; };
+    forwarders {};
+};
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
