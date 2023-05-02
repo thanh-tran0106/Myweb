@@ -18,3 +18,14 @@ www				IN	A	192.168.64.5
 swarmpit.docker.demo.ai.	IN	A	192.168.64.4
 robot2.docker.demo.ai.          IN      A       192.168.64.6
 robot3.docker.demo.ai.          IN      A       192.168.64.7
+
+robot0				IN	A	192.168.64.4
+robot1				IN	A	192.168.64.5
+robot2				IN	A	192.168.64.6
+robot3				IN	A	192.168.64.7
+robot4				IN	A	192.168.64.8
+
+docker.demo.ai			IN	CNAME	192.168.64.5
+www				IN	A	192.168.64.5
+jenkins				IN	A	192.168.64.5
+swarmpit			IN	A	192.168.64.4
