@@ -1,15 +1,15 @@
 //
 // Do any local configuration here
-zone "docker.demo.ai" {
+zone "myweb.demo.ai" {
     type master;
-    file "/etc/bind/zones/db.docker.demo.ai"; # zone file path
+    file "/etc/bind/zones/db.myweb.demo.ai"; # zone file path
     forwarders {};
     allow-update { none; };
 };
 
-zone "64.168.192.in-addr.arpa" {
+zone "232.168.192.in-addr.arpa" {
     type master;
-    file "/etc/bind/zones/db.192.168.64";  # 192.168.64.0/24 subnet
+    file "/etc/bind/zones/db.192.168.232";  # 192.168.232.0/24 subnet
     allow-update { none; };
     forwarders {};
 };
