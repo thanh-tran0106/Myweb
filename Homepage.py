@@ -1,4 +1,15 @@
+from pathlib import Path
+
+
 import streamlit as st
+from PIL import Image
+
+# --- PATH SETTINGS ---
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+css_file = current_dir / "styles" / "main.css"
+resume_file = current_dir / "images" / "CV.pdf"
+profile_pic = current_dir / "images" / "profile-pic.png"
+
 
 
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
