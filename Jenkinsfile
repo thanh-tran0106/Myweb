@@ -20,6 +20,7 @@ pipeline {
           sh 'docker rm -f streamlit'
           sh 'docker build -t streamlit .'
           sh 'docker run --name streamlit -d -p 8501:8501 streamlit'
+          sh 'docker ps -a
         }
       }
     }
