@@ -1,2 +1,27 @@
-pipeline{
+pipeline {
+  agent {
+     label "robot3"
+   }
+  stages {
+    stage('Checkout: Myweb source code') {
+      steps {
+        dir('Myweb') {
+          git branch : 'main',
+            url : 'https://github.com/thanh-tran0106/Myweb.git'
+        }     
+      }
+    }
+  
+  stage('Upload images to Jfrog') {
+    steps {
+      script {
+        dir('Myweb') {
+          sh 'ls -la'
+          sh 'docker save myweb:v1.0 > myweb:v1.0.tar'
+          sh 'curl -k -u "thanh:M4st3r1234@" -X PUT https://jfrog.myweb.demo.ai/artifactory/docker-image/myweb:v1.0.tar --data-binary @myweb\:v1.0.tar '
+        }
+      }
+    }
+  }
+}
 }
