@@ -17,7 +17,7 @@ pipeline {
       script {
         dir('Myweb') {
           sh 'ls -la'
-          sh 'docker save myweb:v1.0 > myweb:v1.0.tar'
+          sh 'docker image save -o myweb:v1.0.tar streamlit:latest'
           sh 'curl -k -u "thanh:M4st3r1234@" -X PUT https://jfrog.myweb.demo.ai/artifactory/docker-image/myweb:v1.0.tar --data-binary @myweb:v1.0.tar '
         }
       }
