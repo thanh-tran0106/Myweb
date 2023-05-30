@@ -18,7 +18,7 @@ pipeline {
     stage('Download image from Jfrog') {
       steps{
         script {
-          if (fileExists('/home/thanh/myweb.tar')) {
+          if (fileExists('/home/thanh/workspace/Infrastructure/production_deployment/myweb.tar')) {
            echo "Docker image existed. Loading image..."
            sh 'ls -la'
            sh 'docker load --input myweb.tar && sleep 10s'
