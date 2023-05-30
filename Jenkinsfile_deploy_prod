@@ -1,0 +1,37 @@
+pipeline {
+
+  agent {
+  label "robot3"
+  }
+
+  stages {
+
+    stage('Checkout Source') {
+      steps {
+        git 'https://github.com/thanh-tran0106/Myweb.git'
+      }
+    }
+
+    stage('Download image from Jfrog') {
+      steps{
+        script {
+          sh 'curl -k -u "thanh:M4st3r1234@" -X GET https://jfrog.myweb.demo.ai:443/artifactory/docker-image/myweb%3Av1.0.tar -H 'Content-Type:application/json' -o myweb.tar'
+          sh 'ls -la'
+          sh 'docker load --input myweb.tar'
+          sh 'docker images'
+        }
+      }
+    }
+
+
+    stage('Deploying React.js container to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+        }
+      }
+    }
+
+  }
+
+}
