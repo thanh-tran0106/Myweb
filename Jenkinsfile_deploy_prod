@@ -21,12 +21,12 @@ pipeline {
           if (fileExists('/home/thanh/myweb.tar')) {
            echo "Docker image existed. Loading image..."
            sh 'ls -la'
-           sh 'docker load --input myweb.tar && sleep 5s'
+           sh 'docker load --input myweb.tar && sleep 10s'
           }
           else {
           sh 'curl -k -u "thanh:M4st3r1234@" -X GET https://jfrog.myweb.demo.ai:443/artifactory/docker-image/myweb%3Av1.0.tar -o myweb.tar'
           sh 'ls -la'
-          sh 'docker load --input myweb.tar && sleep 5s'
+         // sh 'docker load --input myweb.tar && sleep 10s'
           sh 'docker images'
           }
 
