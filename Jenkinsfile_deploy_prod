@@ -6,9 +6,12 @@ pipeline {
 
   stages {
 
-    stage('Checkout Source') {
+    stage('Checkout: Myweb source code') {
       steps {
-        git 'https://github.com/thanh-tran0106/Myweb.git'
+        dir('Myweb') {
+          git branch : 'main',
+            url : 'https://github.com/thanh-tran0106/Myweb.git'
+        }     
       }
     }
 
