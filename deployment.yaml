@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: streamlit #The name of the react.js application container
+        imagePullPolicy: Never
         image: streamlit:latest #The Docker image for building the React.js application container
         ports:
-        - containerPort: 8501 #The port for the React.js application   container
+        - containerPort: 8501 #The port for the streamlit application container
