@@ -1,0 +1,20 @@
+//
+// Do any local configuration here
+zone "myweb.demo.ai" {
+    type master;
+    file "/etc/bind/zones/db.myweb.demo.ai"; # zone file path
+    forwarders {};
+    allow-update { none; };
+};
+
+zone "232.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.192.168.232";  # 192.168.232.0/24 subnet
+    allow-update { none; };
+    forwarders {};
+};
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";

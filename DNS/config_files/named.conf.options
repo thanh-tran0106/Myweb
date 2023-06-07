@@ -1,0 +1,22 @@
+acl "trusted" {
+        192.168.232.129;    # robot1
+	192.168.232.128;
+	192.168.232.130; 
+	192.168.232.1;	 # gw
+};
+
+options {
+	directory "/var/cache/bind";
+        recursion yes;                 # enables recursive queries
+        allow-query { localhost; trusted; };
+        allow-recursion { trusted; };  # allows recursive queries from "trusted" clients
+        listen-on { 192.168.232.129; };   # ns1 private IP address - listen on private network only
+        allow-transfer { localhost; };      #zone transfers by default
+
+        forwarders {
+                8.8.8.8;
+                8.8.4.4;
+        };
+	dnssec-validation auto;
+
+};
