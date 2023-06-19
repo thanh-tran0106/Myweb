@@ -3,6 +3,9 @@
 
 This is my personal project for practicing devops skills
 
+## Author
+Thanh Tran
+
 ## Description
 
 
@@ -10,8 +13,8 @@ This is my personal project for practicing devops skills
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+*VMware
+* 
 
 ### Installing
 
