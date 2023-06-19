@@ -1,4 +1,5 @@
 # Myweb
-![IMG_7164](https://github.com/thanh-tran0106/Myweb/assets/74903521/01de61ee-05a5-4ae9-88a8-38749fceb9c3)
-![DNS_Nginx](https://github.com/thanh-tran0106/Myweb/assets/74903521/6782d731-076e-40b2-8bbc-fd724110cded)
-![CI:CD](https://github.com/thanh-tran0106/Myweb/assets/74903521/d7f45d5a-9f34-4c2e-9b7d-d5f466ea7da5)
+
+![DNS-NGINX](https://github.com/thanh-tran0106/Myweb/assets/74903521/9bd582fb-e983-4cfb-81d0-1479c05c971a)
+![CI:CD](https://github.com/thanh-tran0106/Myweb/assets/74903521/6cfc5ced-a56a-4235-ae95-8a1fd4be58e9)
+![Untitled Diagram](https://github.com/thanh-tran0106/Myweb/assets/74903521/9e8b8846-23c5-4714-9fdb-7bfd98270f28)
