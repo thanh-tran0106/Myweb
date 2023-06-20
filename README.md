@@ -34,11 +34,10 @@ Thanh Tran
 - Go to Jenkins server and run command to load the backup files.
 
 ### Diagrams
-![DNS-NGINX](https://github.com/thanh-tran0106/Myweb/assets/74903521/89cce842-840b-4025-a078-44fb9b9d430d) 
-- Backend servers diagram /
+![DNS-NGINX](https://github.com/thanh-tran0106/Myweb/assets/74903521/29c16be7-2a7c-4169-a126-8bfd4b8d01e6)
 
-![CI:CD](https://github.com/thanh-tran0106/Myweb/assets/74903521/6cfc5ced-a56a-4235-ae95-8a1fd4be58e9)
-- CI/CD diagram /
+![CI:CD](https://github.com/thanh-tran0106/Myweb/assets/74903521/2528f34f-b064-4b75-963b-b577e8f10faa)
+
 ![Untitled Diagram](https://github.com/thanh-tran0106/Myweb/assets/74903521/9e8b8846-23c5-4714-9fdb-7bfd98270f28)
 
 ### Executing program
