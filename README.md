@@ -36,6 +36,3 @@ Thanh Tran
 ### Executing program
 
 TBD
-code blocks for commands
-```
-
