@@ -7,59 +7,35 @@ This is my personal project for practicing devops skills
 Thanh Tran
 
 ## Description
-
-
+- This is a PoC (Proof-of-Concept) to showcase a working solution for enterprise/company based on DevOps Skillsets that I have.
+- This is a continuous development project so there will be additional changes and improvement over time.
+- This is a standalone project that I work by myself.
+- This project consists of 2 parts:
+     - Infrastructure provisioning: setup, config backend servers (DNS, NGINX, JENKINS, JFROG)
+     - Front-end application: streamlit
+- Technologies have been used:
+   - Containerization (Docker, Kubernetes)
+   - Automation and Orchestration (Jenkins, Packer, Ansible, Vagrant)
+   - Virtualization (AWS, VMWare Fusion)
+   - CI/CD
+     
 ## Getting Started
-
+- To automate infrastructure, we use packer/vagrant to provision backend servers (DNS, NGINX, JENKINS, JFROG)
+- After having the infrastructure ready, we load the backup jobs to Jenkins server and run the provison jobs to but the front end application in DEV environment (on 1 VMware VM)
+- Once we have tested the application working in DEV, we can deploy the application to PROD environment (AWS/VM running k8s) using Jenkins job. 
 ### Dependencies
-
-*VMware
-* 
+- Sufficient computer performance (RAM, Storage)
+- Valid AWS account
 
 ### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+- Packer/Vagrant installed in your host machine.
+- Hypervisor of your choosing installed.
+- Run the packer/vagrant command to provision all the servers.
+- Go to Jenkins server and run command to load the backup files.
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
+TBD
 code blocks for commands
 ```
 
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
