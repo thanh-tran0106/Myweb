@@ -1,0 +1,36 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "iso_url": "https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso",
+      "iso_checksum": "sha256:SHA256_CHECKSUM_OF_ISO",
+      "iso_checksum_type": "sha256",
+      "guest_os_type": "ubuntu-64",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "20m",
+      "headless": true,
+      "disk_size": 20480,
+      "vm_name": "base_vm"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "apt-get update",
+        "apt-get install -y python3 python3-pip"
+      ]
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "./ansible/playbook.yml"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "output": "output/ubuntu-20.04-ansible.box"
+    }
+  ]
+}
