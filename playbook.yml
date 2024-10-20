@@ -1,0 +1,52 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install basic packages
+      apt:
+        name: ['curl', 'git', 'docker.io', 'nginx', 'bind9']
+        state: present
+
+    - name: Start and enable NGINX service
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Pull and run JFrog Artifactory container
+      docker_container:
+        name: jfrog
+        image: docker.bintray.io/jfrog/artifactory-oss:latest
+        state: started
+        restart_policy: always
+        published_ports:
+          - "8081:8081"
+
+    - name: Install Jenkins
+      apt_repository:
+        repo: 'deb http://pkg.jenkins.io/debian-stable binary/'
+        state: present
+      register: jenkins_repo
+
+    - name: Add Jenkins key
+      apt_key:
+        url: https://pkg.jenkins.io/debian/jenkins.io.key
+        state: present
+
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+        update_cache: yes
+      when: jenkins_repo.changed
+
+    - name: Start and enable Jenkins service
+      service:
+        name: jenkins
+        state: started
+        enabled: true
