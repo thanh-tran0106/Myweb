@@ -1,0 +1,35 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install Java JDK (required for Jenkins)
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Add Jenkins repository key
+      apt_key:
+        url: https://pkg.jenkins.io/debian/jenkins.io.key
+        state: present
+
+    - name: Add Jenkins repository
+      apt_repository:
+        repo: 'deb http://pkg.jenkins.io/debian-stable binary/'
+        state: present
+
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+        update_cache: yes
+
+    - name: Start and enable Jenkins service
+      service:
+        name: jenkins
+        state: started
+        enabled: true
