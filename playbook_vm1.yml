@@ -1,0 +1,34 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install basic packages
+      apt:
+        name: ['nginx', 'bind9', 'docker.io']
+        state: present
+
+    - name: Start and enable NGINX service
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Start and enable Bind9 DNS service
+      service:
+        name: bind9
+        state: started
+        enabled: true
+
+    - name: Pull and run JFrog Artifactory container
+      docker_container:
+        name: jfrog
+        image: docker.bintray.io/jfrog/artifactory-oss:latest
+        state: started
+        restart_policy: always
+        published_ports:
+          - "8081:8081"
