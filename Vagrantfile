@@ -9,6 +9,9 @@ Vagrant.configure("2") do |config|
       vb.memory = 2048
       vb.cpus = 2
     end
+    vm1.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ansible/playbook_vm1.yml"
+    end
   end
 
   # VM 2: Jenkins
@@ -19,6 +22,9 @@ Vagrant.configure("2") do |config|
       vb.memory = 2048
       vb.cpus = 2
     end
+    vm2.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ansible/playbook_vm2.yml"
+    end
   end
 
   # VM 3: Kubernetes (Can be provisioned separately with another playbook if needed)
@@ -28,6 +34,9 @@ Vagrant.configure("2") do |config|
     vm3.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
       vb.cpus = 2
+    end
+    vm3.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ansible/playbook_vm3.yml"
     end
   end
 end
