@@ -1,0 +1,35 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install packages for Kubernetes
+      apt:
+        name: ['apt-transport-https', 'curl']
+        state: present
+
+    - name: Add Kubernetes APT repository GPG key
+      apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+
+    - name: Add Kubernetes repository
+      apt_repository:
+        repo: 'deb http://apt.kubernetes.io/ kubernetes-xenial main'
+        state: present
+
+    - name: Install Kubernetes packages (kubeadm, kubelet, kubectl)
+      apt:
+        name: ['kubeadm', 'kubelet', 'kubectl']
+        state: present
+        update_cache: yes
+
+    - name: Hold Kubernetes packages at the current version
+      apt:
+        name: ['kubeadm', 'kubelet', 'kubectl']
+        state: present
+        state: hold
